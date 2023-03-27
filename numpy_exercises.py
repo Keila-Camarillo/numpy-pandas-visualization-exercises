@@ -1,18 +1,23 @@
 import numpy as np
 from scipy import stats
-import seaborn as sns
-import pandas as pd 
+
 a = np.array([4, 10, 12, 23, -2, -1, 0, 0, 0, -6, 3, -7])
 # 1. How many negative numbers are there?
-print(a[a > 0])
+print(len(a[a < 0]))
 
 # 2. How many positive numbers are there?
 print(len(a[a > 0]))
 
 # 3. How many even positive numbers are there?
+pos_nums = a[a>0]
+print(len(pos_nums[pos_nums % 2 == 0]))
+
+
 print(len(a[a % 2 == 0] > 0))
 
 # 4. If you were to add 3 to each data point, how many positive numbers would there be?
+a_3 = a + 3 
+len(a[(a+3)>0])
 print(len(a[a + 3 > 0]))
 
 # 5. If you squared each number, what would the new mean and standard deviation be?
@@ -165,3 +170,69 @@ c = [
     [7, 8, 9]
 ]
 
+# Setup 3
+c = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+
+# HINT, you'll first need to make sure that the "c" variable is a numpy array prior to using numpy array methods.
+# Exercise 1 - Find the min, max, sum, and product of c.
+c.min(), c.max(), c.sum(), c.prod()
+# Exercise 2 - Determine the standard deviation of c.
+c.std()
+
+# Exercise 3 - Determine the variance of c.
+print(c.var())
+
+# Exercise 4 - Print out the shape of the array c
+np.shape(c)
+# Exercise 5 - Transpose c and print out transposed result.
+ct = np.transpose(c)
+
+# Exercise 6 - Get the dot product of the array c with c. 
+np.dot(c,c)
+
+# Exercise 7 - Write the code necessary to sum up the result of c times c transposed. Answer should be 261
+print(np.sum(c * c.transpose()))
+# Exercise 8 - Write the code necessary to determine the product of c times c transposed. Answer should be 131681894400.
+print(c.std())
+
+## Setup 4
+d = np.array([
+    [90, 30, 45, 0, 120, 180],
+    [45, -90, -30, 270, 90, 0],
+    [60, 45, -45, 90, -45, 180]
+])
+
+# Exercise 1 - Find the sine of all the numbers in d
+np.sin(d)
+
+
+# Exercise 2 - Find the cosine of all the numbers in d
+np.cos(d)
+
+
+# Exercise 3 - Find the tangent of all the numbers in d
+np.tan(d)
+
+# Exercise 4 - Find all the negative numbers in d
+np.tan([c>0])
+
+
+# Exercise 5 - Find all the positive numbers in d
+np.tan([c<0])
+# Exercise 6 - Return an array of only the unique numbers in d.
+np.unique(d)
+
+# Exercise 7 - Determine how many unique numbers there are in d.
+len(np.unique(d))
+
+# Exercise 8 - Print out the shape of d.
+d.shape
+# Exercise 9 - Transpose and then print out the shape of d.
+d.transpose().shape
+
+# Exercise 10 - Reshape d into an array of 9 x 2
+np.reshape(d, (9,2))
